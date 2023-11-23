@@ -1,6 +1,7 @@
 import {Checkbox, Box} from 'native-base';
 import React from 'react';
 import {StyleSheet, Text, TextInput, View} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 function LoginEmail() {
   return (
@@ -11,12 +12,26 @@ function LoginEmail() {
         <Text style={styles.email}>Email</Text>
         <Text style={styles.phoneNumber}>Phone Number</Text>
       </View>
-      <TextInput style={styles.inputEmail} placeholder="Input your email" />
-      <TextInput
-        style={styles.inputPass}
-        placeholder="Input your password"
-        secureTextEntry
-      />
+      <View style={styles.inputNameSection}>
+        <Icon style={styles.userIcon} name="envelope" size={20} color="#000" />
+        <TextInput style={styles.input} placeholder="Input your email" />
+      </View>
+      <View style={styles.inputNameSection}>
+        <Icon style={styles.userIcon} name="lock" size={20} color="#000" />
+        <TextInput
+          style={styles.input}
+          placeholder="Input your password"
+          secureTextEntry
+        />
+        <View>
+          <Icon
+            style={styles.eyeSlash}
+            name="eye-slash"
+            size={20}
+            color="#000"
+          />
+        </View>
+      </View>
       <View style={styles.recover}>
         <View style={styles.rememberMe}>
           <Checkbox isChecked colorScheme="green" value="" />
@@ -69,10 +84,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     textAlign: 'center',
   },
-  text: {
-    flexDirection: 'row',
-    fontSize: 15,
-  },
   email: {
     fontWeight: 'bold',
     fontSize: 15,
@@ -80,6 +91,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
     paddingVertical: 10,
     width: '50%',
+    borderRadius: 10,
   },
   phoneNumber: {
     fontSize: 15,
@@ -88,22 +100,29 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 10,
   },
-  inputEmail: {
+  inputNameSection: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderRadius: 10,
     backgroundColor: '#00bfff',
-    fontWeight: 'bold',
-    paddingHorizontal: 50,
-    paddingVertical: 15,
-    width: '100%',
+  },
+  userIcon: {
+    padding: 15,
+    borderRadius: 10,
+    backgroundColor: '#00bfff',
+  },
+  input: {
+    flex: 1,
+    backgroundColor: '#00bfff',
+    padding: 15,
     borderRadius: 10,
   },
-  inputPass: {
-    backgroundColor: '#00bfff',
-    fontWeight: 'bold',
-    paddingHorizontal: 40,
-    paddingVertical: 15,
-    width: '100%',
-    borderRadius: 10,
+  eyeSlash: {
+    padding: 15,
   },
+
   recover: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -114,8 +133,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 10,
   },
-  registerNOw: {
-    fontWeight: 'bold',
+  text: {
+    flexDirection: 'row',
     fontSize: 15,
   },
   loginButton: {
@@ -143,6 +162,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     paddingHorizontal: 30,
     paddingVertical: 30,
+  },
+  registerNOw: {
+    fontWeight: 'bold',
+    fontSize: 15,
   },
 });
 

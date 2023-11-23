@@ -1,23 +1,59 @@
 import {Checkbox, Box, Text, View} from 'native-base';
 import React from 'react';
 import {StyleSheet, TextInput} from 'react-native';
-import Micon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 function Register() {
   return (
-    <View style={styles.container} flex={1}>
-      <Text style={styles.textBold}>Register</Text>
+    <View style={styles.container}>
+      <Text style={styles.textBold}>Register Your Name</Text>
       <Text>Create your account</Text>
-      <TextInput style={styles.inputName} placeholder="Input your name" />
-      <TextInput style={styles.inputName} placeholder="Input your email" />
-      <TextInput
-        style={styles.inputName}
-        placeholder="Input your phone number"
-      />
-      <TextInput style={styles.inputName} placeholder="Input your password" />
-      <TextInput style={styles.inputName} placeholder="Confirm your password" />
+      <View style={styles.inputNameSection}>
+        <Icon style={styles.userIcon} name="user" size={20} color="#000" />
+        <TextInput style={styles.input} placeholder="Input your name" />
+      </View>
+      <View style={styles.inputNameSection}>
+        <Icon style={styles.userIcon} name="envelope" size={20} color="#000" />
+        <TextInput style={styles.input} placeholder="Input your email" />
+      </View>
+      <View style={styles.inputNameSection}>
+        <Icon style={styles.userIcon} name="phone" size={20} color="#000" />
+        <TextInput style={styles.input} placeholder="Input your phone number" />
+      </View>
+      <View style={styles.inputNameSection}>
+        <Icon style={styles.userIcon} name="lock" size={20} color="#000" />
+        <TextInput
+          style={styles.input}
+          placeholder="Confirm your password"
+          secureTextEntry
+        />
+        <View>
+          <Icon
+            style={styles.eyeSlash}
+            name="eye-slash"
+            size={20}
+            color="#000"
+          />
+        </View>
+      </View>
+      <View style={styles.inputNameSection}>
+        <Icon style={styles.userIcon} name="lock" size={20} color="#000" />
+        <TextInput
+          style={styles.input}
+          placeholder="Confirm your password"
+          secureTextEntry
+        />
+        <View>
+          <Icon
+            style={styles.eyeSlash}
+            name="eye-slash"
+            size={20}
+            color="#000"
+          />
+        </View>
+      </View>
+
       <View style={styles.recover}>
-        <Micon name={'close'} />
         <View style={styles.rememberMe}>
           <Checkbox isChecked colorScheme="green" value="" />
           <Text style={styles.text}>Remember Me</Text>
@@ -34,7 +70,8 @@ function Register() {
         <Box style={styles.box} />
       </View>
       <Text>
-        Already have account? <Text style={styles.registerNOw}>Login now</Text>
+        Already have an account?{' '}
+        <Text style={styles.registerNOw}>Login now</Text>
       </Text>
     </View>
   );
@@ -53,6 +90,28 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     elevation: 0,
     paddingHorizontal: 30,
+  },
+  inputNameSection: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderRadius: 10,
+    backgroundColor: '#00bfff',
+  },
+  userIcon: {
+    padding: 15,
+    borderRadius: 10,
+    backgroundColor: '#00bfff',
+  },
+  input: {
+    flex: 1,
+    backgroundColor: '#00bfff',
+    padding: 15,
+    borderRadius: 10,
+  },
+  eyeSlash: {
+    padding: 15,
   },
   textBold: {
     fontWeight: 'bold',
@@ -79,6 +138,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
     paddingVertical: 15,
     width: '100%',
+    borderRadius: 10,
+  },
+  inputNameProfile: {
+    flexDirection: 'row',
     borderRadius: 10,
   },
   recover: {
