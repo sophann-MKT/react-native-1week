@@ -3,13 +3,17 @@ import React from 'react';
 import {StyleSheet, Text, TextInput, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-function LoginPhoneNumber() {
+function LoginPhoneNumber({navigation}) {
   return (
     <View style={styles.container}>
       <Text style={styles.textBold}>Welcome Back</Text>
       <Text>Login with your Phone Number</Text>
       <View style={styles.emailPhoneNumber}>
-        <Text style={styles.email}>Email</Text>
+        <Text
+          style={styles.email}
+          onPress={() => navigation.navigate('LoginEmail')}>
+          Email
+        </Text>
         <Text style={styles.phoneNumber}>Phone Number</Text>
       </View>
       <View style={styles.inputNameSection}>
@@ -42,7 +46,11 @@ function LoginPhoneNumber() {
       <View style={styles.loginButton}>
         <Text style={styles.text}>Login</Text>
       </View>
-      <Text>----Or continue with----</Text>
+      <View style={styles.continueLine}>
+        <View style={styles.line} />
+        <Text>Or continue with</Text>
+        <View style={styles.line} />
+      </View>
       <View style={styles.boxDirection}>
         <Box style={styles.box} />
         <Box style={styles.box} />
@@ -50,7 +58,11 @@ function LoginPhoneNumber() {
       </View>
       <Text>
         Dont have an account?{' '}
-        <Text style={styles.registerNOw}>Register now</Text>
+        <Text
+          style={styles.registerNow}
+          onPress={() => navigation.navigate('Register')}>
+          Register now
+        </Text>
       </Text>
     </View>
   );
@@ -146,6 +158,21 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: 10,
   },
+  continueLine: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+  },
+  line: {
+    flex: 1,
+    borderWidth: 0.3,
+    opacity: 0.5,
+    alignItems: 'center',
+    borderColor: '#000000',
+    width: '100%',
+    height: 1,
+  },
   boxDirection: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -157,13 +184,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 20,
     borderColor: '#000000',
-    borderWidth: 1,
+    borderWidth: 0.5,
+    opacity: 0.5,
+    shadowColor: '#000000',
     borderRadius: 10,
     backgroundColor: 'white',
     paddingHorizontal: 30,
     paddingVertical: 30,
   },
-  registerNOw: {
+  registerNow: {
     fontWeight: 'bold',
     fontSize: 15,
   },

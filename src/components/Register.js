@@ -3,7 +3,7 @@ import React from 'react';
 import {StyleSheet, TextInput} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-function Register() {
+function Register({navigation}) {
   return (
     <View style={styles.container}>
       <Text style={styles.textBold}>Register Your Name</Text>
@@ -24,7 +24,7 @@ function Register() {
         <Icon style={styles.userIcon} name="lock" size={20} color="#000" />
         <TextInput
           style={styles.input}
-          placeholder="Confirm your password"
+          placeholder="Input your password"
           secureTextEntry
         />
         <View>
@@ -63,7 +63,11 @@ function Register() {
       <View style={styles.loginButton}>
         <Text style={styles.text}>Sign Up</Text>
       </View>
-      <Text>----Or continue with----</Text>
+      <View style={styles.continueLine}>
+        <View style={styles.line} />
+        <Text>Or continue with</Text>
+        <View style={styles.line} />
+      </View>
       <View style={styles.boxDirection}>
         <Box style={styles.box} />
         <Box style={styles.box} />
@@ -71,7 +75,11 @@ function Register() {
       </View>
       <Text>
         Already have an account?{' '}
-        <Text style={styles.registerNOw}>Login now</Text>
+        <Text
+          style={styles.registerNow}
+          onPress={() => navigation.navigate('LoginEmail')}>
+          Login now
+        </Text>
       </Text>
     </View>
   );
@@ -154,7 +162,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 10,
   },
-  registerNOw: {
+  registerNow: {
     fontWeight: 'bold',
     fontSize: 15,
   },
@@ -167,6 +175,21 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: 10,
   },
+  continueLine: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+  },
+  line: {
+    flex: 1,
+    borderWidth: 0.3,
+    opacity: 0.5,
+    alignItems: 'center',
+    borderColor: '#000000',
+    width: '100%',
+    height: 1,
+  },
   boxDirection: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -178,7 +201,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 20,
     borderColor: '#000000',
-    borderWidth: 1,
+    borderWidth: 0.5,
+    opacity: 0.5,
+    shadowColor: '#000000',
     borderRadius: 10,
     backgroundColor: 'white',
     paddingHorizontal: 30,
