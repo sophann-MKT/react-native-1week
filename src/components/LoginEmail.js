@@ -4,17 +4,48 @@ import {StyleSheet, Text, TextInput, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 function LoginEmail({navigation}) {
+  const [inputText, seInputText] = useState('email');
+  const handleInputChange = change => {
+    seInputText(change);
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.textBold}>Welcome Back</Text>
       <Text>Login with your Email</Text>
       <View style={styles.emailPhoneNumber}>
-        <Text style={styles.email}>Email</Text>
-        <Text style={styles.phoneNumber}>Phone Number</Text>
+        <Text
+          style={
+            (styles.email,
+            inputText === 'email' ? styles.email : styles.phoneNumber)
+          }
+          onPress={() => handleInputChange('email')}>
+          Email
+        </Text>
+        <Text
+          style={
+            (styles.phoneNumber,
+            inputText === 'phone' ? styles.email : styles.phoneNumber)
+          }
+          onPress={() => handleInputChange('phone')}>
+          Phone Number
+        </Text>
       </View>
       <View style={styles.inputNameSection}>
-        <Icon style={styles.userIcon} name="envelope" size={20} color="#000" />
-        <TextInput style={styles.input} placeholder="Input your email" />
+        <Icon
+          style={styles.userIcon}
+          name={inputText === 'email' ? 'envelope' : 'phone'}
+          size={20}
+          color="#000"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder={
+            inputText === 'email'
+              ? 'Input your email'
+              : 'Input your phone number'
+          }
+        />
       </View>
       <View style={styles.inputNameSection}>
         <Icon style={styles.userIcon} name="lock" size={20} color="#000" />
@@ -98,7 +129,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'yellow',
     paddingHorizontal: 40,
     paddingVertical: 10,
-    width: '50%',
     borderRadius: 10,
   },
   phoneNumber: {
