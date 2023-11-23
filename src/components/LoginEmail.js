@@ -1,5 +1,5 @@
 import {Checkbox, Box} from 'native-base';
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, TextInput, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -10,11 +10,7 @@ function LoginEmail({navigation}) {
       <Text>Login with your Email</Text>
       <View style={styles.emailPhoneNumber}>
         <Text style={styles.email}>Email</Text>
-        <Text
-          style={styles.phoneNumber}
-          onPress={() => navigation.navigate('LoginPhoneNumber')}>
-          Phone Number
-        </Text>
+        <Text style={styles.phoneNumber}>Phone Number</Text>
       </View>
       <View style={styles.inputNameSection}>
         <Icon style={styles.userIcon} name="envelope" size={20} color="#000" />

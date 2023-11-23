@@ -3,14 +3,12 @@ import LoginEmail from './src/components/LoginEmail';
 import {NativeBaseProvider} from 'native-base';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import LoginPhoneNumber from './src/components/LoginPhoneNumber';
 import Register from './src/components/Register';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
   const screens = [
     {name: 'LoginEmail', component: LoginEmail},
-    {name: 'LoginPhoneNumber', component: LoginPhoneNumber},
     {name: 'Register', component: Register},
   ];
   return (
