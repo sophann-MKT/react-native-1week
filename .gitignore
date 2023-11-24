@@ -64,3 +64,8 @@ yarn-error.log
 
 # testing
 /coverage
+# Automated CI/CD
+.bundle/
+
+#Procfile
+Procfile
